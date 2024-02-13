@@ -29,7 +29,7 @@ def configure():
     topo = part2_topo()
     net = Mininet(topo=topo, controller=RemoteController)
 
-    # c0 = net.addController('c0', controller=RemoteController, ip='127.0.0.1', port=6633)
+    c1 = net.addController('c1', controller=RemoteController, ip='127.0.0.1', port=6633)
     
     net.start()
 
