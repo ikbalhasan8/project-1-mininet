@@ -11,7 +11,7 @@ class part1_topo(Topo):
         pass
         switch1 = self.addSwitch('s1')
         host1 = self.addHost('h1')
-        self.addLink(host1,switch1)
+        self.addLink(switch1,host1)
 
 
 topos = {"part1": part1_topo}
