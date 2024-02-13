@@ -7,7 +7,7 @@ def create_firewall_net():
     net = Mininet(controller=RemoteController, switch=OVSSwitch, link=TCLink)
 
     # Add controller
-    c0 = net.addController('c0', controller=RemoteController, ip='127.0.0.1', port=6653)
+    c0 = net.addController('c0', controller=RemoteController, ip='127.0.0.1', port=6633)
 
     # Add switches
     s1 = net.addSwitch('s1')
