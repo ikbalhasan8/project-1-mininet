@@ -9,9 +9,9 @@ from mininet.cli import CLI
 class part1_topo(Topo):
     def build(self):
         pass
-        # switch1 = self.addSwitch('switchname')
-        # host1 = self.addHost('hostname')
-        # self.addLink(hostname,switchname)
+        switch1 = self.addSwitch('switchname')
+        host1 = self.addHost('hostname')
+        self.addLink(hostname,switchname)
 
 
 topos = {"part1": part1_topo}
