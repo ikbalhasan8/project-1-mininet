@@ -5,7 +5,8 @@ from mininet.net import Mininet
 from mininet.util import dumpNodeConnections
 from mininet.log import setLogLevel
 from mininet.cli import CLI
-from mininet.node import RemoteController
+from mininet.node import RemoteController, OVSSwitch
+from mininet.link import TCLink
 
 
 class part2_topo(Topo):
@@ -19,6 +20,8 @@ class part2_topo(Topo):
         self.addLink(h2, s1)
         self.addLink(h3, s1)
         self.addLink(h4, s1)
+        # Add firewall rule: accept ICMP traffic from any source IP to any destination IP
+        s1.cmd('ovs-ofctl add-flow s1 "priority=100,dl_type=0x0800,nw_proto=1,actions=normal"')
 
 
 topos = {"part2": part2_topo}
