@@ -19,12 +19,12 @@ class part1_topo(Topo):
         self.addLink(host3,switch1)
         self.addLink(host4,switch1)
 
+topos = { 'part1': ( lambda: part1_topo() ) }
+# topos = {"part1": part1_topo}
 
-topos = {"part1": part1_topo}
-
-if __name__ == "__main__":
-    t = part1_topo()
-    net = Mininet(topo=t)
-    net.start()
-    CLI(net)
-    net.stop()
+# if __name__ == "__main__":
+#     t = part1_topo()
+#     net = Mininet(topo=t)
+#     net.start()
+#     CLI(net)
+#     net.stop()
