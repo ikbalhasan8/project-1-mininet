@@ -36,6 +36,7 @@ def configure():
     # Add firewall rule: accept ICMP traffic from any source IP to any destination IP
     s1 = net.get("s1")
     s1.cmd('ovs-ofctl add-flow s1 "priority=100,dl_type=0x0800,nw_proto=1,actions=normal"')
+    s1.cmd('ovs-ofctl add-flow s1 "priority=100,dl_type=0x0806,actions=normal"')
 
     CLI(net)
 
