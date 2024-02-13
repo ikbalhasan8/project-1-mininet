@@ -20,8 +20,6 @@ class part2_topo(Topo):
         self.addLink(h2, s1)
         self.addLink(h3, s1)
         self.addLink(h4, s1)
-        # Add firewall rule: accept ICMP traffic from any source IP to any destination IP
-        s1.cmd('ovs-ofctl add-flow s1 "priority=100,dl_type=0x0800,nw_proto=1,actions=normal"')
 
 
 topos = {"part2": part2_topo}
@@ -34,6 +32,10 @@ def configure():
     # c0 = net.addController('c0', controller=RemoteController, ip='127.0.0.1', port=6633)
     
     net.start()
+
+    # Add firewall rule: accept ICMP traffic from any source IP to any destination IP
+    s1 = net.get("s1")
+    s1.cmd('ovs-ofctl add-flow s1 "priority=100,dl_type=0x0800,nw_proto=1,actions=normal"')
 
     CLI(net)
 
